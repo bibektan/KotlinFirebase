@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter The Details"
+        android:text="Register with Firebase Authentication"
         android:layout_gravity="center"
         android:textSize="25sp"
         android:gravity="center"

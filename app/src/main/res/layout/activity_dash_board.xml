@@ -5,11 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashBoardActivity"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="15dp"
-    android:background="@color/white">
+    android:gravity="center">
 
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Below Users Data are Fetched from Firestore Database"
+        android:textSize="15sp"
+        android:padding="10sp"
+        android:textAllCaps="false"/>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -32,7 +39,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-            />
+                />
             <TextView
                 android:id="@+id/dname"
                 android:layout_width="wrap_content"
@@ -43,7 +50,7 @@
                 android:layout_marginTop="10dp"
                 />
             <TextView
-                android:id="@+id/dphone"
+                android:id="@+id/dmobile"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Phone: 88989"
@@ -66,7 +73,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/logoutButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log Out"
@@ -74,5 +81,25 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginTop="50dp"/>
+
+
+    <Button
+        android:id="@+id/restApi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click: Data Fetching from Retrofit REST API"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:textAllCaps="false"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="API URL = https://jsonplaceholder.typicode.com/posts"
+        android:textSize="15sp"
+        android:padding="10sp"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

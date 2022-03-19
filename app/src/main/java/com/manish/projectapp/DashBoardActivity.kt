@@ -2,29 +2,47 @@ package com.manish.projectapp
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dash_board.*
+import kotlinx.android.synthetic.main.profilefragment.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.StringBuilder
 
+
+const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 class DashBoardActivity : AppCompatActivity() {
+
     private lateinit var db:FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-
 
         db = FirebaseFirestore.getInstance()
 
         val sharePref = this?.getPreferences(Context.MODE_PRIVATE)?:return
         val isLogin = sharePref.getString("email","1")
 
-        logout.setOnClickListener{
+        logoutButtonId.setOnClickListener{
             sharePref.edit().remove("email").apply()
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+
+        restApi.setOnClickListener{
+            val intent = Intent(this, RestApiDataActivity::class.java)
+            startActivity(intent)
+        }
+
 
         if(isLogin == "1"){
             var getEmail = intent.getStringExtra("email")
@@ -52,7 +70,7 @@ class DashBoardActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     tasks->
                     dname.text = tasks.get("name").toString()
-                    dphone.text = tasks.get("phone").toString()
+                    dmobile.text = tasks.get("phone").toString()
                     demail.text = tasks.get("email").toString()
                 }
         }

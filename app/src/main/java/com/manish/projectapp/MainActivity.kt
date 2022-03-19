@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         register.setOnClickListener{
             var intentRegister = Intent(this, RegisterActivity::class.java)
             startActivity(intentRegister)
-            finish()
         }
 
         login.setOnClickListener{
