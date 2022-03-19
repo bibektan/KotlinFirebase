@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dash_board.*
-import kotlinx.android.synthetic.main.profilefragment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
